@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LabO2TestWeatherInformer</string>
+    <string name="today_weather">Погода на сегодня</string>
+    <string name="weekly_weather">Погода на неделю</string>
 </resources>
