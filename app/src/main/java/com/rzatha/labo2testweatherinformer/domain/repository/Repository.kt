@@ -1,8 +1,10 @@
 package com.rzatha.labo2testweatherinformer.domain.repository
 
+import com.rzatha.labo2testweatherinformer.domain.WeatherInfo
+
 interface Repository {
 
-    fun getCurrentWeather(lat: Double, lon: Double)
+    suspend fun getCurrentWeather(lat: Double, lon: Double) : WeatherInfo
 
-    fun getWeeklyForecast()
+    suspend fun getWeeklyForecast()
 }

@@ -6,7 +6,7 @@ class GetWeeklyForecastUseCase(
     private val repository: Repository
 ) {
 
-    operator fun invoke() {
+    suspend operator fun invoke() {
         repository.getWeeklyForecast()
     }
 }
