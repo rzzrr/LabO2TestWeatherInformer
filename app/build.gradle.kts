@@ -9,8 +9,8 @@ android {
 
     defaultConfig {
         applicationId = "com.rzatha.labo2testweatherinformer"
-        minSdk = 28
-        targetSdk = 35
+        minSdk = 24
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
