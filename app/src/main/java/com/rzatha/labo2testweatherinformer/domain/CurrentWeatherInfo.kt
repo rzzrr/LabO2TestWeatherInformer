@@ -1,12 +1,13 @@
 package com.rzatha.labo2testweatherinformer.domain
 
-import android.health.connect.datatypes.units.Temperature
+import java.io.Serializable
 
-data class WeatherInfo (
+
+data class CurrentWeatherInfo (
     val lon: Double,
     val lat: Double,
     val location: String,
     val temperature: Double,
     val clarity: String,
     val description: String
-)
+) : Serializable

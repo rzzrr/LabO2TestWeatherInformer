@@ -2,4 +2,5 @@
     <string name="app_name">LabO2TestWeatherInformer</string>
     <string name="today_weather">Погода на сегодня</string>
     <string name="weekly_weather">Погода на неделю</string>
+    <string name="city_average_temp_title">Средняя температура по городу</string>
 </resources>
