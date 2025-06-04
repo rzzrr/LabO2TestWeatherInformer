@@ -14,7 +14,8 @@ class Mapper {
             response.city,
             response.weatherTemp.temp,
             response.weather.first().clarity,
-            response.weather.first().description
+            response.weather.first().description,
+            response.weather.first().iconId
         )
 
     fun mapForecastResponseToForecastInfo(response: ForecastResponse): ForecastInfo {

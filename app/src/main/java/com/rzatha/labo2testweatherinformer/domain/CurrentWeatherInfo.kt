@@ -9,5 +9,6 @@ data class CurrentWeatherInfo (
     val location: String,
     val temperature: Double,
     val clarity: String,
-    val description: String
+    val description: String,
+    val iconId: String
 ) : Serializable
