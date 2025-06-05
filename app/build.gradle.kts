@@ -53,6 +53,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.gson)
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
 
     implementation(libs.kotlinx.coroutines.android)
 

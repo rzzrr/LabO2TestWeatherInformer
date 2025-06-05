@@ -13,6 +13,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.rzatha.labo2testweatherinformer.R
 import com.rzatha.labo2testweatherinformer.databinding.ActivityCurrentWeatherBinding
 import com.rzatha.labo2testweatherinformer.presentation.viewmodel.CurrentWeatherViewModel
 import com.rzatha.labo2testweatherinformer.presentation.withCelsius
@@ -57,6 +59,11 @@ class CurrentWeatherActivity : AppCompatActivity() {
         with(viewModel) {
             weatherInfo.observe(this@CurrentWeatherActivity) {
                 Log.d("CurrentWeatherActivity", it.toString())
+
+                Glide.with(this@CurrentWeatherActivity)
+                    .load(getCorrectWeatherIcon(it.iconId))
+                    .into(binding.ivWeatherIcon)
+
                 viewModel.currentWeatherInfo = it
                 with(binding) {
                     tvCity.text = it.location
@@ -96,7 +103,7 @@ class CurrentWeatherActivity : AppCompatActivity() {
             return
         }
 
-        val minTime: Long = 60_000
+        val minTime: Long = 1_000
         val minDistanceMeters = 10f
 
         try {
@@ -109,6 +116,24 @@ class CurrentWeatherActivity : AppCompatActivity() {
             )
         } catch (e: SecurityException) {
             Toast.makeText(this, "Ошибка доступа к местоположению", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun getCorrectWeatherIcon(weatherCode: String) : Int {
+        return when(weatherCode) {
+            "01d" -> R.drawable.im01d
+            "01n" -> R.drawable.im01n
+            "02d" -> R.drawable.im02d
+            "02n" -> R.drawable.im02n
+            "03d", "03n" -> R.drawable.im03
+            "04d", "04n" -> R.drawable.im04
+            "09d", "09n" -> R.drawable.im09
+            "010d" -> R.drawable.im10d
+            "010n" -> R.drawable.im10n
+            "011d", "011n" -> R.drawable.im11
+            "013d", "013n" -> R.drawable.im13
+            "050d", "050n" -> R.drawable.im50
+            else -> R.drawable.im01d
         }
     }
 
@@ -130,4 +155,5 @@ class CurrentWeatherActivity : AppCompatActivity() {
         override fun onProviderEnabled(provider: String) {}
         override fun onProviderDisabled(provider: String) {}
     }
+
 }
